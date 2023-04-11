@@ -1,0 +1,1 @@
+this is the location of all the common componets that are used by all the pages

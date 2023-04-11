@@ -1,0 +1,1 @@
+This is the location of the components that build the pages
