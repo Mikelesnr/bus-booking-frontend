@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
-import  axios  from 'axios'; 
-import { Link } from 'react-router-dom';
+import  axios  from 'axios';
+import Trip from 'components/common/trip';
+//import { Link } from 'react-router-dom';
 
-function Booking() {
-
+function Driver() {
+    const bus_reg = "ABB 12346"
     const [trips,setTrips]=useState([]);
 
     useEffect(()=>{
@@ -16,18 +17,22 @@ function Booking() {
         const {data} = await axios.get("http://127.0.0.1:8000/booking/tripsavailable.json");
         setTrips(data);
 
-  }
+    }
+    
+    
+  
     return (
         <div>
-          <h1>booking page</h1>
-          <h2>Trips Available</h2>
+          <h1>Driver Page</h1>
+          <h2>My Trips</h2>
           <div className="container-sm themed-container text-center">
             <Table className="mb">
             <thead className='hide'>
               {trips.map((trip)=>
-              <>
-             <div class="dropdown">
-                <button className="btn btn-info dropdown-toggle bg-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <>{bus_reg === trip.bus_reg?<>
+            
+              <div class="dropdown">
+                <button className="btn btn-info dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <tr className='bg-info'>
                       <th>Bus Reg : {trip.bus_reg}</th>
                       <th className=''>Date : {trip.trip_date}</th>
@@ -38,12 +43,13 @@ function Booking() {
                   </tr>
                 </button>
                 <ul class="dropdown-menu bg-info">
-                  <li>Action</li>
-                  <li>Another action</li>
-                  <li>Something else here</li>
+                  <li><Trip/></li>
                 </ul>
               </div>
-              <br></br>
+            </>
+            
+            :<></>}
+            <br></br>
             </>
             )
             }
@@ -54,4 +60,4 @@ function Booking() {
     )
 }
 
-export default Booking;
+export default Driver;
