@@ -26,9 +26,7 @@ function Booking() {
             <thead className='hide'>
               {trips.map((trip)=>
               <>
-             <div class="dropdown">
-                <button className="btn btn-info dropdown-toggle bg-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <tr className='bg-info'>
+              <tr className='bg-info'>
                       <th>Bus Reg : {trip.bus_reg}</th>
                       <th className=''>Date : {trip.trip_date}</th>
                       <th className=''>Time : {trip.trip_time}</th>
@@ -36,13 +34,6 @@ function Booking() {
                       <th className=''>Destination : {trip.trip_destination}</th>
                       <th className='border border-left'>seats : {trip.seats_available}</th>
                   </tr>
-                </button>
-                <ul class="dropdown-menu bg-info">
-                  <li>Action</li>
-                  <li>Another action</li>
-                  <li>Something else here</li>
-                </ul>
-              </div>
               <br></br>
             </>
             )
