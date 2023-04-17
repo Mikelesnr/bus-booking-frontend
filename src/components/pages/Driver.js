@@ -5,7 +5,7 @@ import Trip from 'components/common/Trip';
 //import { Link } from 'react-router-dom';
 
 function Driver() {
-    const bus_reg = "ABB 12346"
+    const bus_reg = "ACD 654321"
     const [trips,setTrips]=useState([]);
 
     useEffect(()=>{

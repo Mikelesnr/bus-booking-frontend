@@ -9,10 +9,17 @@ function AddBooking() {
     const [date,setDate] = useState("");
     const [departure,setDeparture] = useState("");
     const [destination,setDestination] = useState("");
-    console.log(destination);
+
     async function add(){
-        let item = {'client_name':name,'client_surname':surname,'bus_reg':busreg,'trip_time':time,
-                    'trip_date':date,'trip_depature':departure,'trip_destinaton':destination};
+        let item = {
+        'client_name': name,
+        'client_surname': surname,
+        'bus_reg': busreg,
+        'trip_time': time,
+        'trip_date': date,
+        'trip_depature': departure,
+        'trip_destination': destination
+    };
         // eslint-disable-next-line no-unused-vars
         let result = await fetch("http://127.0.0.1:8000/booking/",{
             method:"POST",
@@ -20,9 +27,8 @@ function AddBooking() {
             headers:{
                 "Content-Type":"application/json",
                 "Accept":"application/json"}
-        }
-        );
-        console.log(result.data);
+        });
+        console.log(result.json());
     }
 
     return (
