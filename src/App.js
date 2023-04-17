@@ -11,15 +11,7 @@ import AddTrip from 'components/pages/AddTrip';
 import Login from 'components/pages/login/login';
 import Signup from "components/pages/signup/signup";
 import Landing from 'components/pages/Landing/landing';
-import React from 'react';
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import Booking from './components/pages/Booking';
-import Driver from 'components/pages/Driver';
-import Trip from 'components/common/Trip';
-import AddDriver from 'components/pages/AddDriver';
-import Drivers from 'components/pages/ViewDrivers';
-import AddBooking from 'components/pages/AddBooking';
-import AddTrip from 'components/pages/AddTrip';
+
 
 function App() {
   return (
