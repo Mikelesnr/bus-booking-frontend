@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Container,
   Avatar,
@@ -11,7 +12,42 @@ import {
   Typography,
 } from "@mui/material";
 
+
+const login_url = "http://127.0.0.1:8000/api/auth";
+
+
 function Login() {
+
+
+
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const signin = async () => {
+      const request = new Request(`${login_url}/login/`, {
+        body: JSON.stringify({ username, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      const res = await fetch(request);
+      const data = await res.json();
+
+      if (res.ok) {
+        // console.log(data);
+        localStorage.setItem("user-info", JSON.stringify(data));
+        console.log("User fetched")
+        // navigate("/dashboard");
+      } else {
+        // console.log("Failed");
+        alert("Invalid creditials");
+      }
+    };
+
+
+
   return (
     <>
       <Container component="main" maxWidth="xs">
@@ -36,6 +72,8 @@ function Login() {
                 id="username"
                 label="User Name"
                 name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -46,6 +84,8 @@ function Login() {
                 label="Password"
                 type="password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -54,7 +94,7 @@ function Login() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            //   onClick={signup}
+              onClick={signin}
           >
             Login
           </Button>
