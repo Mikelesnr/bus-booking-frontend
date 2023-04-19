@@ -108,7 +108,7 @@ function Landing() {
                 className="team-img"
                 alt="pic"
               />
-              <h3>ATURIHEIHI BLENDON</h3>
+              <h3>MICHAEL N MWANZA</h3>
               <div className="team-info">
                 <p>Full stack Developer</p>
               </div>
