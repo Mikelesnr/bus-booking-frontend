@@ -10,8 +10,10 @@ import AddBooking from 'components/pages/AddBooking';
 import AddTrip from 'components/pages/AddTrip';
 import Login from 'components/pages/login/login';
 import Signup from "components/pages/signup/signup";
+import EditTrip from 'components/pages/EditTrip';
+import EditBooking from 'components/pages/EditBooking';
+import EditDriver from 'components/pages/EditDriver';
 import Landing from 'components/pages/Landing/landing';
-
 
 function App() {
   return (
@@ -28,7 +30,9 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/home' element={<Landing/>} />
           <Route path='/signup' element={<Signup/>} />
-
+          <Route path='/edit_trip' element={<EditTrip/>} />
+          <Route path='/edit_booking' element={<EditBooking/>} />
+          <Route path='/edit_driver' element={<EditDriver/>} />
         </Routes>
       </BrowserRouter>
     </div>
