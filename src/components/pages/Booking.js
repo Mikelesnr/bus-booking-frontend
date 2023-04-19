@@ -19,8 +19,10 @@ function Booking() {
   }
     return (
         <div>
+          <div className="container-sm themed-container text-center">
           <h1>booking page</h1>
           <h2>Trips Available</h2>
+          </div>
           <div className="container-sm themed-container text-center">
             <Table className="mb">
             <thead className='hide'>
