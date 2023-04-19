@@ -23,8 +23,10 @@ function Driver() {
   
     return (
         <div>
-          <h1>Admin</h1>
+          <div className="container-sm themed-container text-center">
+          <h1>Driver</h1>
           <h2>My Trips</h2>
+          </div>
           <div className="container-sm themed-container text-center">
             <Table className="mb row d-flex justify-content-center">
             <thead className='hide'>
