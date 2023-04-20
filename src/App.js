@@ -3,7 +3,7 @@ import React from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Booking from './components/pages/Booking';
 import Driver from 'components/pages/Driver';
-import Trip from 'components/common/Trip';
+import Trip from 'components/pages/Trip';
 import AddDriver from 'components/pages/AddDriver';
 import Drivers from 'components/pages/ViewDrivers';
 import AddBooking from 'components/pages/AddBooking';
@@ -14,6 +14,7 @@ import EditTrip from 'components/pages/EditTrip';
 import EditBooking from 'components/pages/EditBooking';
 import EditDriver from 'components/pages/EditDriver';
 import Landing from 'components/pages/Landing/landing';
+import AllTrips from 'components/pages/AllTrips';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='/edit_trip' element={<EditTrip/>} />
           <Route path='/edit_booking' element={<EditBooking/>} />
           <Route path='/edit_driver' element={<EditDriver/>} />
+          <Route path='/all_trips' element={<AllTrips/>} />
         </Routes>
       </BrowserRouter>
     </div>
