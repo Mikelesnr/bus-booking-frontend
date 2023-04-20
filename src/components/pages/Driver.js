@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
 import  axios  from 'axios';
-import Trip from 'components/common/Trip';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Driver() {
     const bus_reg = "ACD 654321"
@@ -18,8 +17,6 @@ function Driver() {
         setTrips(data);
 
     }
-    
-    
   
     return (
         <div>
@@ -32,23 +29,15 @@ function Driver() {
             <thead className='hide'>
               {trips.map((trip)=>
               <>{bus_reg === trip.bus_reg?<>
-            
-              <div className="dropdown">
-                <button className="btn btn-info dropdown-toggle bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <tr className='bg-info'>
+                <tr className='bg-info'>
                       <th>Bus Reg : {trip.bus_reg}</th>
                       <th className=''>Date : {trip.trip_date}</th>
                       <th className=''>Time : {trip.trip_time}</th>
                       <th className=''>Departure : {trip.trip_depature}</th>
                       <th className=''>Destination : {trip.trip_destination}</th>
                       <th className='border border-left'>seats : {trip.seats_available}</th>
+                      <th><span className='btn btn-update flex'><Link to={"/trip/?bus_reg=" + trip.bus_reg + "&trip_time=" + trip.trip_time}>view</Link></span></th>
                   </tr>
-                </button>
-                <ul className="dropdown-menu bg-info">
-                  <li><Trip/></li>
-                  
-                </ul>
-              </div>
             </>
             
             :<></>}

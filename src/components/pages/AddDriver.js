@@ -1,4 +1,6 @@
 import React,{useState} from 'react';
+import Header from 'components/common/header/header';
+import Footer from 'components/common/footer/footer';
 
 function AddDriver() {
 
@@ -24,6 +26,7 @@ function AddDriver() {
 
     return (
         <>
+        <Header/>
         <div className="col-sm-6 offset-sm-3 pdng-top">
             <h1>Add Driver</h1>
             <input type="text" className="form-control" onChange={(e)=>setName(e.target.value)} placeholder="Name"></input><br/>
@@ -34,6 +37,7 @@ function AddDriver() {
             <input type="text" className="form-control" onChange={(e)=>setRoute(e.target.value)} placeholder="Route"></input><br/>
             <><button className="btn btn-secondary mb" onClick={add}>Add Bus</button><br/></>
         </div>
+        <Footer/>
         </>
     )
 }

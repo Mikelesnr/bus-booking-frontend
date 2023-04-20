@@ -1,16 +1,23 @@
 import React,{useState,useEffect} from 'react';
+import { useSearchParams } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 function Trip() {
 
+     const user= "driver"
+
      const [trip,setTrip]=useState([]);
+     const [search]=useSearchParams();
+     const reg = search.get('bus_reg');
+     const time = search.get('trip_time');
 
     useEffect(() => {
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 'bus_reg': 'ACD 654321','trip_time':'1pm' })
+        body: JSON.stringify({ 'bus_reg': reg ,'trip_time': time })
     };
     fetch('http://127.0.0.1:8000/booking/trip.json', requestOptions)
         .then(response => response.json())
@@ -22,7 +29,9 @@ function Trip() {
         
     return(
         <div>
-        <h1>trip</h1>
+        <div className="container-sm themed-container text-center">
+          <h2>Trip</h2>
+          </div>
         <div>
         <Table className="mb">
             <thead>
@@ -55,6 +64,9 @@ function Trip() {
                 
             </tbody>
             </Table>
+            </div>
+            <div className="container-sm themed-container text-center">
+              <span className='btn btn-danger flex'><Link to={ user === "driver"?"/driver":"/all_trips"}>Return</Link></span>
             </div>
             </div>
 

@@ -31,6 +31,8 @@ function Drivers() {
                       <th className='border border-left'>Seats</th>
                       <th className='border border-left'>Bus Type</th>
                       <th className='border border-left'>Route</th>
+                      <th className='border border-left'>Edit</th>
+                      <th className='border border-left'>Create Trip</th>
                 </tr>
                 </thead>
             <tbody className='hide'>
@@ -43,6 +45,11 @@ function Drivers() {
                       <th className='border border-left'>{driver.no_of_seats}</th>
                       <th className='border border-left'>{driver.bus_type}</th>
                       <th className='border border-left'>{driver.route}</th>
+                      <th className='border border-left'><span className='btn btn-update flex'><Link to={"/edit_driver/?bus_reg=" + driver.bus_reg + 
+                      "&name=" + driver.name + "&surname=" + driver.surname + "&seats=" + driver.no_of_seats + "&id=" + driver.id
+                      + "&bus_type=" + driver.bus_type + "&route=" + driver.route }>Edit</Link></span></th>
+                      <th className='border border-left'><span className='btn btn-update flex'><Link to={"/add_trip/?bus_reg=" + driver.bus_reg + 
+                      "&route=" + driver.route }>Add Trip</Link></span></th>
                 </tr>
             </>
             )
