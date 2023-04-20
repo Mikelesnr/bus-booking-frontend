@@ -16,6 +16,12 @@ import EditBooking from 'components/pages/EditBooking';
 import EditDriver from 'components/pages/EditDriver';
 import Landing from 'components/pages/Landing/landing';
 import AllTrips from 'components/pages/AllTrips';
+import HomePage from 'components/pages/Home/home';
+import Drivertable from 'components/pages/Drivertable';
+import AddDriverForm from 'components/pages/AddDriverform';
+import AddTripForm from 'components/pages/AddTripform';
+import Bustable from 'components/pages/Bustable';
+
 
 function App() {
   return (
@@ -24,6 +30,12 @@ function App() {
         <Routes>
           <Route path='/book' element={<Booking />} />
           <Route path='/bookings' element={<Bookings />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/buses' element={<Bustable/>} />
+          <Route path='/addD' element={<AddDriverForm />} />
+          <Route path='/addT' element={<AddTripForm />} />
+          <Route path='/dr' element={<Drivertable />} />
+          <Route path='/bookings' element={<Booking />} />
           <Route path='/trip' element={<Trip />} />
           <Route path='/driver' element={<Driver />} />
           <Route path='/drivers' element={<Drivers />} />
