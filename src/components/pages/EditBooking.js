@@ -28,8 +28,8 @@ function EditBooking() {
     async function add(){
 
         const formData = new FormData();
-        formData.append("client_name",[name])
-        formData.append("client_surname",[surname])
+        formData.append("client_name",[name?name:client_name])
+        formData.append("client_surname",[surname?surname:client_surname])
         formData.append("bus_reg",[reg])
         formData.append("ticket_id",[my_ticket])
         formData.append("trip_time",[bus_time])
@@ -58,7 +58,7 @@ function EditBooking() {
     }
 
     async function delete_entry(){
-        let my_result = await fetch(`http://127.0.0.1:8000/booking/booking/4`,{
+        let my_result = await fetch(`http://127.0.0.1:8000/booking/booking/${id}`,{
             method:"delete",
             body:null,
         })
@@ -80,7 +80,7 @@ function EditBooking() {
             <input type="text" className="form-control" onChange={(e)=>setDestination(e.target.value)} defaultValue={bus_destination}></input><br/>
             <thead>
                 <tr>
-                    <th><button className="btn btn-primary mb" onClick={add}>Edit</button><br/></th>
+                    <th><button className="btn btn-primary mb" onClick={add}>Edit Booking</button><br/></th>
                     <th><button className="btn btn-danger mb ms-5" onClick={delete_entry}>delete</button><br/></th>
                 </tr>
             </thead>

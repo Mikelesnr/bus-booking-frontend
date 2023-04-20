@@ -17,8 +17,6 @@ function Driver() {
         setTrips(data);
 
     }
-    
-    
   
     return (
         <div>

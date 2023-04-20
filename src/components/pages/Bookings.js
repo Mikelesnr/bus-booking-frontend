@@ -22,7 +22,7 @@ function Bookings() {
     return (
         <div>
           <div className="container-sm themed-container text-center">
-          <h1>Driver</h1>
+          <h1>Bookings</h1>
           <h2>My Trips</h2>
           </div>
           <div className="container-sm themed-container text-center">

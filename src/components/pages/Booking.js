@@ -13,7 +13,7 @@ function Booking() {
 
 
     const fetchData = async ()=>{
-        const {data} = await axios.get("http://127.0.0.1:8000/booking/tripsavailable.json");
+        const {data} = await axios.get("http://127.0.0.1:8000/booking/tripsavailable");
         setTrips(data);
 
   }
@@ -38,6 +38,9 @@ function Booking() {
                       <th><span className='btn btn-update flex'><Link to={"/add_booking/?bus_reg=" + trip.bus_reg + 
                       "&trip_time=" + trip.trip_time + "&date=" + trip.trip_date + "&departure=" + trip.trip_depature
                       + "&destination=" + trip.trip_destination }>book</Link></span></th>
+                      <th><span className='btn btn-secondary flex'><Link to={"/edit_booking/?id=" + trip.id + "&bus_reg=" + trip.bus_reg + 
+                      "&trip_time=" + trip.trip_time + "&date=" + trip.trip_date + "&departure=" + trip.trip_depature
+                      + "&destination=" + trip.trip_destination + "&ticket=" + trip.ticket}>edit</Link></span></th>
                   </tr>
               <br></br>
             </>
