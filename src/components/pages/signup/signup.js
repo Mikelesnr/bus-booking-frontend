@@ -11,7 +11,8 @@ import {
     Box,
     Typography,
 } from "@mui/material";
-
+import Header from "components/common/header/header";
+import Footer from "components/common/footer/footer";
 
 const register_url = "http://127.0.0.1:8000/api";
 
@@ -62,6 +63,7 @@ function Signup() {
 
     return (
       <>
+        <Header/>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -153,6 +155,8 @@ function Signup() {
             </Grid>
           </Box>
         </Container>
+        <br></br>
+        <Footer/>
       </>
     );
 

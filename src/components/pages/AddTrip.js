@@ -1,4 +1,6 @@
 import React,{useState} from 'react';
+import Header from 'components/common/header/header';
+import Footer from 'components/common/footer/footer';
 
 function AddTrip() {
 
@@ -23,6 +25,7 @@ function AddTrip() {
 
     return (
         <>
+        <Header/>
         <div className="col-sm-6 offset-sm-3 pdng-top">
             <h1>Add Trip</h1>
             <input type="text" className="form-control" onChange={(e)=>setBusreg(e.target.value)} placeholder="Bus Reg"></input><br/>
@@ -32,6 +35,7 @@ function AddTrip() {
             <input type="text" className="form-control" onChange={(e)=>setDestination(e.target.value)} placeholder="Destination"></input><br/>
             <><button className="btn btn-secondary mb" onClick={add}>Add Trip</button><br/></>
         </div>
+        <Footer/>
         </>
     )
 }

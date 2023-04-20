@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Booking from './components/pages/Booking';
+import Bookings from 'components/pages/Bookings';
 import Driver from 'components/pages/Driver';
 import Trip from 'components/pages/Trip';
 import AddDriver from 'components/pages/AddDriver';
@@ -21,7 +22,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/bookings' element={<Booking />} />
+          <Route path='/book' element={<Booking />} />
+          <Route path='/bookings' element={<Bookings />} />
           <Route path='/trip' element={<Trip />} />
           <Route path='/driver' element={<Driver />} />
           <Route path='/drivers' element={<Drivers />} />

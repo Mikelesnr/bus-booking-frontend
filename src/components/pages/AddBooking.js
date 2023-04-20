@@ -1,8 +1,5 @@
 import React,{useState} from 'react';
 import { useSearchParams } from "react-router-dom";
-import Table from 'react-bootstrap/Table';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 function AddBooking() {
 
@@ -27,11 +24,11 @@ function AddBooking() {
         const formData = new FormData();
         formData.append("client_name",[name])
         formData.append("client_surname",[surname])
-        formData.append("bus_reg",[busreg])
-        formData.append("trip_time",[time])
-        formData.append("trip_date",[date])
-        formData.append("trip_depature",[departure])
-        formData.append("trip_destination",[destination])
+        formData.append("bus_reg",[reg])
+        formData.append("trip_time",[bus_time])
+        formData.append("trip_date",[bus_date])
+        formData.append("trip_depature",[bus_departure])
+        formData.append("trip_destination",[bus_destination])
         
         var object = {};
         formData.forEach(function(value, key){
@@ -40,7 +37,7 @@ function AddBooking() {
         let json = JSON.stringify(object);
 
         // eslint-disable-next-line no-unused-vars
-        let result = await fetch("http://127.0.0.1:8000/booking",{
+        let result = await fetch("http://127.0.0.1:8000/booking/",{
             method:"POST",
             headers: {
             'Accept': 'application/json',

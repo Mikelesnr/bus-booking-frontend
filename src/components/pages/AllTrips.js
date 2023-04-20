@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
 import  axios  from 'axios';
 import { Link } from 'react-router-dom';
+import Header from 'components/common/header/header';
+import Footer from 'components/common/footer/footer';
 
 function AllTrips() {
     const [trips,setTrips]=useState([]);
@@ -21,6 +23,7 @@ function AllTrips() {
   
     return (
         <div>
+            <Header/>
           <div className="container-sm themed-container text-center">
           <h1>Trips</h1>
           </div>
@@ -45,6 +48,7 @@ function AllTrips() {
             </thead>
             </Table>
             </div>
+            <Footer/>
          </div>
     )
 }
