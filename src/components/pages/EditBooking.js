@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Header from 'components/common/header/header';
 import Footer from 'components/common/footer/footer';
+import { Link } from 'react-router-dom';
 
 function EditBooking() {
 
@@ -80,12 +81,12 @@ function EditBooking() {
             <input type="text" className="form-control" onChange={(e)=>setDestination(e.target.value)} defaultValue={bus_destination}></input><br/>
             <thead>
                 <tr>
-                    <th><button className="btn btn-primary mb" onClick={add}>Edit Booking</button><br/></th>
+                    <th><button className="btn btn-primary mb" onClick={add}><Link to={'/bookings'}>Edit Booking</Link>Edit Booking</button><br/></th>
                     <th><button className="btn btn-danger mb ms-5" onClick={delete_entry}>delete</button><br/></th>
                 </tr>
             </thead>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
         </>
     )
 }
