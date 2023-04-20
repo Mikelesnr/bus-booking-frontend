@@ -1,0 +1,7 @@
+.home {
+    display: flex;
+}
+.home-contain {
+    flex: 7;
+    overflow-y: auto;
+}

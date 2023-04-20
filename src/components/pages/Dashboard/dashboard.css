@@ -1,0 +1,21 @@
+.content {
+    background-color: whitesmoke;
+    height: 100vh;
+    overflow-y: auto;
+}
+.card li {
+    list-style: none;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: antiquewhite;
+    color: palevioletred;
+}
+.scrollable {
+    height: 330px;
+    overflow-y: scroll;
+}
+th, td, tr {
+    text-align: center;
+}
