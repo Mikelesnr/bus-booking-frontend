@@ -3,6 +3,7 @@ import Footer from "components/common/footer/footer"
 import {MDBIcon} from "mdb-react-ui-kit";
 import { Carousel } from "react-bootstrap";
 import './landing.css'
+import { MedicalInformationSharp } from "@mui/icons-material";
 
 function Landing() {
   return (
@@ -73,7 +74,7 @@ function Landing() {
 
               <ul className="team-icon">
                 <li>
-                  <a href="#" className="google">
+                  <a href="mailto:2020blendon@gmail.com" className="google">
                     <MDBIcon fab icon="google" />
                   </a>
                 </li>
@@ -85,13 +86,13 @@ function Landing() {
                 </li>
 
                 <li>
-                  <a href="#" className="linkedin">
+                  <a href="https://www.linkedin.com/in/blendon-aturiheihi-1784ba211/" className="linkedin">
                     <MDBIcon fab icon="linkedin-in" />
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" className="github">
+                  <a href="https://github.com/AturiheihiBlendon?tab=repositories" className="github">
                     <MDBIcon fab icon="github" />
                   </a>
                 </li>
@@ -104,7 +105,7 @@ function Landing() {
           <div className="col-sm-6 col-md-4">
             <div className="team-item">
               <img
-                src="https://avatars.githubusercontent.com/u/73010408?v=4"
+                src="https://avatars.githubusercontent.com/u/82696549?s=400&u=c50dc2cc69358efa330fb8f18194ca6f5f258aa1&v=4"
                 className="team-img"
                 alt="pic"
               />
@@ -121,25 +122,25 @@ function Landing() {
 
               <ul className="team-icon">
                 <li>
-                  <a href="#" className="google">
+                  <a href= "mailto:mwanza.n.m@gmail.com" className="google">
                     <MDBIcon fab icon="google" />
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" className="whatsapp">
+                  <a href="wa.link/cfgczr" className="whatsapp">
                     <MDBIcon fab icon="whatsapp" />
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" className="linkedin">
+                  <a href="https://www.linkedin.com/in/michael-mwanza-15630635/" className="linkedin">
                     <MDBIcon fab icon="linkedin-in" />
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" className="github">
+                  <a href="https://github.com/Mikelesnr?tab=repositories" className="github">
                     <MDBIcon fab icon="github" />
                   </a>
                 </li>

@@ -8,7 +8,7 @@ import {
 
 function Footer() {
   return (
-    <MDBFooter className="bg-dark text-center text-white fixed-bottom mt-100">
+    <MDBFooter className="bg-dark text-center text-white mt-100">
       <MDBContainer className="p-4 pb-0">
         <section className="mb-4">
           <MDBBtn
