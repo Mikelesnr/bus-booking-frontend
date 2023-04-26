@@ -1,17 +1,23 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function AddDriverForm() {
-    
-  const paperstyle = {
-    margin: "30px auto",
-    width: 300,
-    padding: 20,
-    height: "90vh",
-  };
+const baseURL = "http://127.0.0.1:8000";
 
-    const navigate = useNavigate();
+function EditDriverForm() {
+    const paperstyle = {
+      margin: "30px auto",
+      width: 300,
+      padding: 20,
+      height: "90vh",
+    };
+
+    const navigate = useNavigate()
+    const {id} = useParams()
+    // console.log(id)
+  
+  const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [busreg, setBusreg] = useState("");
@@ -19,8 +25,29 @@ export default function AddDriverForm() {
   const [bustype, setBustype] = useState("");
   const [route, setRoute] = useState("");
 
-  async function Add(refresh) {
-    refresh.preventDefault();
+  const getDriver = async () => {
+    const response = await fetch(`${baseURL}/driver/${id}`);
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data.id);
+      setData(data.id)
+      setName(data.name)
+      setSurname(data.surname);
+      setBusreg(data.bus_reg);
+      setSeats(data.no_of_seats);
+      setBustype(data.bus_type);
+      setRoute(data.route);
+    } else {
+      console.log("Failed fetch");
+    }
+  };
+  useEffect(() => {
+    getDriver();
+  }, []);
+
+  const Save = async (id) => {
     let item = {
       name: name,
       surname: surname,
@@ -29,30 +56,29 @@ export default function AddDriverForm() {
       bus_type: bustype,
       route: route,
     };
-    // eslint-disable-next-line no-unused-vars
-    let result = await fetch("http://127.0.0.1:8000/driver/", {
-      method: "POST",
+    let resp = await fetch(`${baseURL}/driver/${id}`, {
+      method: "PUT",
       body: JSON.stringify(item),
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     });
-    if (result.ok){
-        console.log(item)
+    if (resp.ok){
+        // console.log(item)
+        console.log(resp.status, "Updated Driver")
+        navigate("/drivers");
     }
     else{
-        console.log("Failed to add driver")
+        console.log("Failed to Update driver")
     }
-    setName('');setSurname("");setBusreg("");setSeats("");setBustype("");setRoute("");
-    navigate("/drivers");
-  }
+  };
 
   return (
     <Grid>
       <Paper elevation={1} style={paperstyle}>
         <Grid align="center">
-          <h2>ADD DRIVER</h2>
+          <h2>EDIT DRIVER</h2>
         </Grid>
         <TextField
           sx={{ mb: 1 }}
@@ -113,10 +139,16 @@ export default function AddDriverForm() {
           value={route}
           onChange={(e) => setRoute(e.target.value)}
         />
-        <Button variant="contained" fullWidth onClick={Add}>
-          ADD DRIVER
+        <Button
+          variant="contained"
+          fullWidth
+          onClick={() => Save(id)}
+        >
+          SAVE
         </Button>
       </Paper>
     </Grid>
   );
 }
+
+export default EditDriverForm;

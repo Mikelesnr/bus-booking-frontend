@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const baseURL = "http://127.0.0.1:8000";
 
-export default function AddTripForm() {
+export default function EditTripForm() {
   const paperstyle = {
     margin: "30px auto",
     width: 300,
@@ -22,24 +22,29 @@ export default function AddTripForm() {
   const [destination, setDestination] = useState("");
   const [time, setTime] = useState("");
 
-  const getDriver = async () => {
-    const response = await fetch(`${baseURL}/driver/${id}`);
+  const getTrip = async () => {
+    const response = await fetch(`${baseURL}/booking/trips/${id}`);
 
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data.id);
+    //   console.log(data);
       setBusreg(data.bus_reg);
+      setDate(data.trip_date);
+      setDeparture(data.trip_depature);
+      setDestination(data.trip_destination);
+      setTime(data.trip_time);
+
     } else {
       console.log("Failed fetch");
     }
   };
+
   useEffect(() => {
-    getDriver();
+    getTrip();
   }, []);
 
-  async function Add(refresh) {
-    refresh.preventDefault();
+  async function Save(id) {
     let item = {
       bus_reg: busreg,
       trip_time: time,
@@ -48,8 +53,8 @@ export default function AddTripForm() {
       trip_destination: destination,
     };
     // eslint-disable-next-line no-unused-vars
-    let result = await fetch("http://127.0.0.1:8000/booking/tripsavailable", {
-      method: "POST",
+    let result = await fetch(`${baseURL}/booking/trips/${id}`, {
+      method: "PUT",
       body: JSON.stringify(item),
       headers: {
         "Content-Type": "application/json",
@@ -58,8 +63,9 @@ export default function AddTripForm() {
     });
     if (result.ok) {
       console.log(item);
+      console.log("Updated")
     } else {
-      console.log("Failed to add trip");
+      console.log("Failed to update trip");
     }
     setBusreg("");
     setDate("");
@@ -67,14 +73,13 @@ export default function AddTripForm() {
     setDestination("");
     setTime("");
     navigate("/trips-available");
-    
   }
 
   return (
     <Grid>
       <Paper elevation={1} style={paperstyle}>
         <Grid align="center">
-          <h2>ADD TRIP</h2>
+          <h2>EDIT TRIP</h2>
         </Grid>
         <TextField
           sx={{ mb: 1 }}
@@ -125,8 +130,8 @@ export default function AddTripForm() {
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
-        <Button variant="contained" fullWidth onClick={Add}>
-          ADD TRIP
+        <Button variant="contained" fullWidth onClick={() => Save(id)}>
+          SAVE
         </Button>
       </Paper>
     </Grid>

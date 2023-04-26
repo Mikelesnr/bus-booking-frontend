@@ -1,20 +1,19 @@
 import React from 'react';
 import { Box } from "@mui/material";
 import SideNav from "components/common/SideNav/SideNav";
-import AddDriverForm from './AddDriverform';
+import AddTripForm from './AddTripform';
 
-
-const AddDriver = () => {
+const Addtrip = () => {
     return (
       <>
         <Box sx={{ display: "flex" }}>
           <SideNav />
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-            <AddDriverForm/>
+            <AddTripForm/>
           </Box>
         </Box>
       </>
     );
 }
 
-export default AddDriver;
+export default Addtrip;

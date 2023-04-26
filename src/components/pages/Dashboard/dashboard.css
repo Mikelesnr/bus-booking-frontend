@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+.card p {
+    font-size: 20px;
+}
+
 .card:hover {
     background-color: antiquewhite;
     color: palevioletred;
