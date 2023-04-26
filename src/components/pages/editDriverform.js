@@ -31,7 +31,7 @@ function EditDriverForm() {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data.id);
+      // console.log(data);
       setData(data.id)
       setName(data.name)
       setSurname(data.surname);
@@ -107,7 +107,7 @@ function EditDriverForm() {
           fullWidth
           required
           value={busreg}
-          onChange={(e) => setBusreg(e.target.value)}
+          // onChange={(e) => setBusreg(e.target.value)}
         />
 
         <TextField
@@ -139,11 +139,7 @@ function EditDriverForm() {
           value={route}
           onChange={(e) => setRoute(e.target.value)}
         />
-        <Button
-          variant="contained"
-          fullWidth
-          onClick={() => Save(id)}
-        >
+        <Button variant="contained" fullWidth onClick={() => Save(id)}>
           SAVE
         </Button>
       </Paper>
