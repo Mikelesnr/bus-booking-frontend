@@ -61,44 +61,44 @@
 
 
 
-// import React from 'react';
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import HomePage from "components/pages/Home/home";
-// import Drivers from "components/pages/Drivers";
-// import Buses from "components/pages/Buses";
-// import Addtrip from 'components/pages/Addtrip';
-// import Alltrips from "components/pages/Trips";
-// import AdddDriver from 'components/pages/AddDriver';
-// import EditDDriver from 'components/pages/editDriver';
-// import EditTTrip from 'components/pages/editTrip';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "components/pages/Home/home";
+import Drivers from "components/pages/Drivers";
+import Buses from "components/pages/Buses";
+import Addtrip from 'components/pages/Addtrip';
+import Alltrips from "components/pages/Trips";
+import AdddDriver from 'components/pages/AddDriver';
+import EditDDriver from 'components/pages/editDriver';
+import EditTTrip from 'components/pages/editTrip';
 
 
-// import TravellerHome from "components/Traveller/dashboard";
-// import BookTrip from 'components/pages/BookTrip';
+import TravellerHome from "components/Traveller/dashboard";
+import BookTrip from 'components/pages/BookTrip';
 
 
-// const App = () => {
-//   return (
-//     <>
-//       <BrowserRouter>
-//         <Routes>
-//           {/* <Route path="/" element={<HomePage />} /> */}
-//           <Route path="/dashboard" element={<HomePage />} />
-//           <Route path="/drivers" element={<Drivers />} />
-//           <Route path="/add-driver" element={<AdddDriver />} />
-//           <Route path="/edit-driver/:id" element={<EditDDriver />} />
-//           <Route path="/buses" element={<Buses />} />
-//           <Route path="/trips-available" element={<Alltrips />} />
-//           <Route path="/add-trip/:id" element={<Addtrip />} />
-//           <Route path="/edit-trip/:id" element={<EditTTrip />} />
+const App = () => {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/dashboard" element={<HomePage />} />
+          <Route path="/drivers" element={<Drivers />} />
+          <Route path="/add-driver" element={<AdddDriver />} />
+          <Route path="/edit-driver/:id" element={<EditDDriver />} />
+          <Route path="/buses" element={<Buses />} />
+          <Route path="/trips-available" element={<Alltrips />} />
+          <Route path="/add-trip/:id" element={<Addtrip />} />
+          <Route path="/edit-trip/:id" element={<EditTTrip />} />
 
-//           {/* Travellers routes */}
-//           <Route path="/" element={<TravellerHome />} />
-//           <Route path="/book-trip/:id" element={<BookTrip />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </>
-//   );
-// }
+          {/* Travellers routes */}
+          <Route path="/" element={<TravellerHome />} />
+          <Route path="/book-trip/:id" element={<BookTrip />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
 
-// export default App;
+export default App;
