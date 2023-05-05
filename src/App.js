@@ -63,6 +63,11 @@
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from 'components/pages/Landing/landing';
+import AdminSignup from 'components/pages/signup/Adminsignup';
+import Driversignup from 'components/pages/signup/Driversignup';
+import Travellersignup from 'components/pages/signup/Travellersignup';
+import Login from 'components/pages/login/login';
 import HomePage from "components/pages/Home/home";
 import Drivers from "components/pages/Drivers";
 import Buses from "components/pages/Buses";
@@ -82,7 +87,12 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Landing/>} />
+          <Route path="/admin-signup" element={<AdminSignup/>} />
+          <Route path="/driver-signup" element={<Driversignup/>} />
+          <Route path="/traveller-signup" element={<Travellersignup/>} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/dashboard" element={<HomePage />} />
           <Route path="/drivers" element={<Drivers />} />
           <Route path="/add-driver" element={<AdddDriver />} />

@@ -16,9 +16,7 @@ import Footer from "components/common/footer/footer";
 
 const register_url = "http://127.0.0.1:8000/api";
 
-
-function Signup() {
-
+function Driversignup() {
     const [first_name, setfirst_name] = useState("");
     const [last_name, setlast_name] = useState("");
     const [username, setUsername] = useState("");
@@ -26,9 +24,7 @@ function Signup() {
     const [password2, setPassword2] = useState("");
 
     const signUp = async () => {
-      const request = new Request(`${register_url}/register/admin/`, {
-    //   const request = new Request(`${register_url}/register/driver/`, {
-    //   const request = new Request(`${register_url}/register/traveller/`, {
+      const request = new Request(`${register_url}/register/driver/`, {
         body: JSON.stringify({
           first_name,
           last_name,
@@ -148,7 +144,7 @@ function Signup() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -159,7 +155,6 @@ function Signup() {
         <Footer/>
       </>
     );
-
 }
 
-export default Signup
+export default Driversignup
