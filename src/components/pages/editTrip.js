@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import SideNav from "components/common/SideNav/SideNav";
 import EditTripForm from "./EditTripform";
 
-const EditTTrip = () => {
+const EditTrip = () => {
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -16,4 +16,4 @@ const EditTTrip = () => {
   );
 };
 
-export default EditTTrip;
+export default EditTrip;

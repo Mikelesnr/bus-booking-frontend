@@ -73,9 +73,9 @@ import Drivers from "components/pages/Drivers";
 import Buses from "components/pages/Buses";
 import Addtrip from 'components/pages/Addtrip';
 import Alltrips from "components/pages/Trips";
-import AdddDriver from 'components/pages/AddDriver';
-import EditDDriver from 'components/pages/editDriver';
-import EditTTrip from 'components/pages/editTrip';
+import AddDriver from 'components/pages/AddDriver';
+import EditDriver from 'components/pages/editDriver';
+import EditTrip from 'components/pages/editTrip';
 
 
 import TravellerHome from "components/Traveller/dashboard";
@@ -95,12 +95,12 @@ const App = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/dashboard" element={<HomePage />} />
           <Route path="/drivers" element={<Drivers />} />
-          <Route path="/add-driver" element={<AdddDriver />} />
-          <Route path="/edit-driver/:id" element={<EditDDriver />} />
+          <Route path="/add-driver" element={<AddDriver />} />
+          <Route path="/edit-driver/:id" element={<EditDriver />} />
           <Route path="/buses" element={<Buses />} />
           <Route path="/trips-available" element={<Alltrips />} />
           <Route path="/add-trip/:id" element={<Addtrip />} />
-          <Route path="/edit-trip/:id" element={<EditTTrip />} />
+          <Route path="/edit-trip/:id" element={<EditTrip />} />
 
           {/* Travellers routes */}
           <Route path="/" element={<TravellerHome />} />
