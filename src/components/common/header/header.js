@@ -19,7 +19,7 @@ function Header() {
                 <Dropdown.Menu>
                   <Dropdown.Item href="#admin">Admin</Dropdown.Item>
                   <Dropdown.Item href="#driver">Driver</Dropdown.Item>
-                  <Dropdown.Item href="traveller">Traveller</Dropdown.Item>
+                  <Dropdown.Item href="#traveller">Traveller</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>

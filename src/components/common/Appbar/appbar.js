@@ -94,7 +94,7 @@ function TopNav() {
                   Trips
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
+              {/* <MenuItem onClick={handleCloseUserMenu}>
                 <Typography
                   textAlign="center"
                   onClick={() => {
@@ -103,12 +103,9 @@ function TopNav() {
                 >
                   Book Trip
                 </Typography>
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">View Bookings</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">Home</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -142,7 +139,7 @@ function TopNav() {
             >
               Trips
             </Button>
-            <Button
+            {/* <Button
               onClick={
                 (handleCloseNavMenu,
                 () => {
@@ -152,18 +149,12 @@ function TopNav() {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Book Trip
-            </Button>
+            </Button> */}
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
               View Bookings
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Home
             </Button>
           </Box>
 

@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
+import { useParams } from "react-router-dom";
+
+const baseURL = "http://127.0.0.1:8000"
 
 const Bookingform = () => {
   const paperstyle = {
@@ -17,6 +20,30 @@ const Bookingform = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
+  const { id } = useParams();
+
+  const getTrip = async () => {
+    const response = await fetch(`${baseURL}/booking/trips/${id}`);
+
+    const data = await response.json();
+
+    if (response.ok) {
+    //   console.log(data);
+      setBusreg(data.bus_reg);
+      setDate(data.trip_date);
+      setDeparture(data.trip_depature);
+      setDestination(data.trip_destination);
+      setTime(data.trip_time);
+
+    } else {
+      console.log("Failed fetch");
+    }
+  };
+
+  useEffect(() => {
+    getTrip();
+  }, []);
+
   async function Booktrip() {
     let booking = {
       client_name: name,
@@ -28,7 +55,7 @@ const Bookingform = () => {
       trip_time: time,
     };
 
-    let result = await fetch("http://127.0.0.1:8000/booking/", {
+    let result = await fetch(`${baseURL}/booking/`, {
       method: "POST",
       body: JSON.stringify(booking),
       headers: {

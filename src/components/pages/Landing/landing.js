@@ -3,7 +3,6 @@ import Footer from "components/common/footer/footer"
 import {MDBIcon} from "mdb-react-ui-kit";
 import { Carousel } from "react-bootstrap";
 import './landing.css'
-import { MedicalInformationSharp } from "@mui/icons-material";
 
 function Landing() {
   return (
