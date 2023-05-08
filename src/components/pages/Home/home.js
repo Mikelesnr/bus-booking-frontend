@@ -8,6 +8,7 @@ const baseURL = "http://127.0.0.1:8000";
 
 const HomePage = () => {
   const [bustotal, setbustotal] = useState([]);
+  const [usertotal, setusertotal] = useState([]);
   const [drivertotal, setdrivertotal] = useState([]);
 
   useEffect(() => {
@@ -20,10 +21,19 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
+    fetch(`${baseURL}/api/users`)
+      .then((resp) => resp.json())
+      .then((resp) => {
+        // console.log(resp.length);
+        setusertotal(resp);
+      });
+  }, []);
+
+  useEffect(() => {
     fetch(`${baseURL}/driver`)
       .then((resp) => resp.json())
       .then((resp) => {
-        console.log(resp.length);
+        // console.log(resp.length);
         setdrivertotal(resp);
       });
   }, []);
@@ -55,7 +65,7 @@ const HomePage = () => {
                     <h5 className="card-title">
                       <li href="#">Total Users</li>
                     </h5>
-                    <p className="card-text p-4">Dummy</p>
+                    <p className="card-text p-4">{usertotal.length}</p>
                   </div>
                 </li>
               </div>
