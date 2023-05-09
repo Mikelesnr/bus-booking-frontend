@@ -61,7 +61,7 @@
 
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from 'components/pages/Landing/landing';
 import AdminSignup from 'components/pages/signup/Adminsignup';
@@ -71,6 +71,7 @@ import Login from 'components/pages/login/login';
 import HomePage from "components/pages/Home/home";
 import Drivers from "components/pages/Drivers";
 import Buses from "components/pages/Buses";
+import Users from 'components/pages/Users';
 import Addtrip from 'components/pages/Addtrip';
 import Alltrips from "components/pages/Trips";
 import AddDriver from 'components/pages/AddDriver';
@@ -87,7 +88,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/home" element={<Landing/>} />
           <Route path="/admin-signup" element={<AdminSignup/>} />
           <Route path="/driver-signup" element={<Driversignup/>} />
@@ -101,6 +102,7 @@ const App = () => {
           <Route path="/trips-available" element={<Alltrips />} />
           <Route path="/add-trip/:id" element={<Addtrip />} />
           <Route path="/edit-trip/:id" element={<EditTrip />} />
+          <Route path="/users" element={<Users />} />
 
           {/* Travellers routes */}
           <Route path="/" element={<TravellerHome />} />
