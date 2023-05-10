@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Avatar,
@@ -11,13 +12,12 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-// import Header from "components/common/header/header";
-// import Footer from "components/common/footer/footer";
 
 const login_url = "http://127.0.0.1:8000";
 
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -35,8 +35,8 @@ function Login() {
     if (res.ok) {
       // console.log(data);
       localStorage.setItem("user-info", JSON.stringify(data));
-      console.log("User fetched")
-      // navigate("/dashboard");
+      // console.log("User fetched")
+      navigate("/dashboard");
     } else {
       // console.log("Failed");
       alert("Invalid creditials");

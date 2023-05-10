@@ -61,14 +61,14 @@
 
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from 'components/pages/Landing/landing';
 import AdminSignup from 'components/pages/signup/Adminsignup';
 import Driversignup from 'components/pages/signup/Driversignup';
 import Travellersignup from 'components/pages/signup/Travellersignup';
 import Login from 'components/pages/login/login';
-import HomePage from "components/pages/Home/home";
+import AdminDashboard from 'components/pages/Dashboard/AdminDashboard';
 import Drivers from "components/pages/Drivers";
 import Buses from "components/pages/Buses";
 import Users from 'components/pages/Users';
@@ -78,9 +78,13 @@ import AddDriver from 'components/pages/AddDriver';
 import EditDriver from 'components/pages/editDriver';
 import EditTrip from 'components/pages/editTrip';
 
+// for user-type and authentication
+import UserAuth from 'components/utilis/UserAuth';
 
-import TravellerHome from "components/Traveller/dashboard";
+
 import BookTrip from 'components/pages/BookTrip';
+
+
 
 
 const App = () => {
@@ -88,13 +92,13 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
-          <Route path="/home" element={<Landing/>} />
+          <Route path="/" element={<Landing/>} />
           <Route path="/admin-signup" element={<AdminSignup/>} />
           <Route path="/driver-signup" element={<Driversignup/>} />
           <Route path="/traveller-signup" element={<Travellersignup/>} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/dashboard" element={<HomePage />} />
+          <Route path="/dashboard" element={<UserAuth />} />
+          <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/drivers" element={<Drivers />} />
           <Route path="/add-driver" element={<AddDriver />} />
           <Route path="/edit-driver/:id" element={<EditDriver />} />
@@ -105,7 +109,6 @@ const App = () => {
           <Route path="/users" element={<Users />} />
 
           {/* Travellers routes */}
-          <Route path="/" element={<TravellerHome />} />
           <Route path="/book-trip/:id" element={<BookTrip />} />
         </Routes>
       </BrowserRouter>
