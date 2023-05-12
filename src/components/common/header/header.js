@@ -7,7 +7,7 @@ function Header() {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>
-            <Link to="/home">BLENDON</Link>
+            <Link to="/">BLENDON</Link>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
