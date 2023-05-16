@@ -39,6 +39,10 @@ function DataChart() {
                 chart: {
                     id: "basic-bar",
                 },
+                title: {
+                    text: "No of trips Vs No of bookings",
+                    align: "center",
+                },
                 xaxis: {
                     categories: data2.map((item)=> item.bus_reg)
                 }
