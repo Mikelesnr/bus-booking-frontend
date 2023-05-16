@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import "../Dashboard/dashboard.css"
 import SideNav from "components/common/SideNav/SideNav";
-import Bustable from "components/Tables/Bustable";
+// import Bustable from "components/Tables/Bustable";
+import DataChart from "components/Charts/Chart";
 
 const baseURL = "http://127.0.0.1:8000";
 
@@ -83,7 +84,8 @@ function AdminDashboard() {
                 </div>
               </div>
               <div className="col-md-12 m-2 p-5">
-                <Bustable />
+                {/* <Bustable /> */}
+                <DataChart />
               </div>
             </div>
           </Box>
