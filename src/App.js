@@ -83,6 +83,7 @@ import UserAuth from 'components/utilis/UserAuth';
 
 
 import BookTrip from 'components/pages/BookTrip';
+import ProtectedRoutes from 'components/utilis/ProtectedRoutes';
 
 
 
@@ -92,24 +93,24 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing/>} />
-          <Route path="/admin-signup" element={<AdminSignup/>} />
-          <Route path="/driver-signup" element={<Driversignup/>} />
-          <Route path="/traveller-signup" element={<Travellersignup/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/dashboard" element={<UserAuth />} />
-          <Route path="/dashboard" element={<AdminDashboard />} />
-          <Route path="/drivers" element={<Drivers />} />
-          <Route path="/add-driver" element={<AddDriver />} />
-          <Route path="/edit-driver/:id" element={<EditDriver />} />
-          <Route path="/buses" element={<Buses />} />
-          <Route path="/trips-available" element={<Alltrips />} />
-          <Route path="/add-trip/:id" element={<Addtrip />} />
-          <Route path="/edit-trip/:id" element={<EditTrip />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/admin-signup" element={<AdminSignup />} />
+          <Route path="/driver-signup" element={<Driversignup />} />
+          <Route path="/traveller-signup" element={<Travellersignup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<ProtectedRoutes><UserAuth /></ProtectedRoutes>} />
+          <Route path="/dashboard" element={<ProtectedRoutes><AdminDashboard /></ProtectedRoutes>} />
+          <Route path="/drivers" element={<ProtectedRoutes><Drivers /></ProtectedRoutes>} />
+          <Route path="/add-driver" element={<ProtectedRoutes><AddDriver /></ProtectedRoutes>} />
+          <Route path="/edit-driver/:id" element={<ProtectedRoutes><EditDriver /></ProtectedRoutes>} />
+          <Route path="/buses" element={<ProtectedRoutes><Buses /></ProtectedRoutes>} />
+          <Route path="/trips-available" element={<ProtectedRoutes><Alltrips /></ProtectedRoutes>} />
+          <Route path="/add-trip/:id" element={<ProtectedRoutes><Addtrip /></ProtectedRoutes>} />
+          <Route path="/edit-trip/:id" element={<ProtectedRoutes><EditTrip /></ProtectedRoutes>} />
+          <Route path="/users" element={<ProtectedRoutes><Users /></ProtectedRoutes>} />
 
           {/* Travellers routes */}
-          <Route path="/book-trip/:id" element={<BookTrip />} />
+          <Route path="/book-trip/:id" element={<ProtectedRoutes><BookTrip /></ProtectedRoutes>} /> 
         </Routes>
       </BrowserRouter>
     </>
