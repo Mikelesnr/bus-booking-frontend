@@ -1,19 +1,19 @@
 import React from "react";
 import { Box } from "@mui/material";
 import SideNav from "components/common/SideNav/SideNav";
-import EditDriverForm from "./editDriverform";
+import UsersTable from "components/Tables/Usertable";
 
-const EditDriver = () => {
+const Users = () => {
   return (
     <>
       <Box sx={{ display: "flex" }}>
         <SideNav />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <EditDriverForm />
+          <UsersTable />
         </Box>
       </Box>
     </>
   );
 };
 
-export default EditDriver;
+export default Users;

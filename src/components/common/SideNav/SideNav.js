@@ -271,7 +271,7 @@ export default function SideNav() {
             >
               <AdminPanelSettingsIcon
                 onClick={() => {
-                  navigate("/nasa");
+                  navigate("/users");
                 }}
               />
             </ListItemIcon>
