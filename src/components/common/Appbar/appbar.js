@@ -34,15 +34,20 @@ function TopNav() {
     setAnchorElUser(null);
   };
 
+  function logout() {
+    localStorage.clear();
+    navigate("/");
+  }
+
   return (
-    <AppBar position="sticky" style={{ background: "#2E3B55" }}>
+    <AppBar position="fixed" style={{ background: "#2E3B55" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h4"
             noWrap
             component="a"
-            href="/"
+            href="/dashboard"
             sx={{
               mr: 5,
               display: { xs: "none", md: "flex" },
@@ -88,22 +93,12 @@ function TopNav() {
                 <Typography
                   textAlign="center"
                   onClick={() => {
-                    navigate("/");
+                    navigate("/dashboard");
                   }}
                 >
                   Trips
                 </Typography>
               </MenuItem>
-              {/* <MenuItem onClick={handleCloseUserMenu}>
-                <Typography
-                  textAlign="center"
-                  onClick={() => {
-                    navigate("/book-trip");
-                  }}
-                >
-                  Book Trip
-                </Typography>
-              </MenuItem> */}
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">View Bookings</Typography>
               </MenuItem>
@@ -132,24 +127,13 @@ function TopNav() {
               onClick={
                 (handleCloseNavMenu,
                 () => {
-                  navigate("/");
+                  navigate("/dashboard");
                 })
               }
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Trips
             </Button>
-            {/* <Button
-              onClick={
-                (handleCloseNavMenu,
-                () => {
-                  navigate("/book-trip");
-                })
-              }
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Book Trip
-            </Button> */}
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
@@ -159,7 +143,7 @@ function TopNav() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="View Profile">
+            <Tooltip title="Click to logout">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar />
               </IconButton>
@@ -181,11 +165,8 @@ function TopNav() {
               onClose={handleCloseUserMenu}
             >
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">Profile</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">
-                  <LogoutIcon /> Logout
+                <Typography textAlign="center" onClick={logout}>
+                  <LogoutIcon onClick={logout} /> Logout
                 </Typography>
               </MenuItem>
             </Menu>

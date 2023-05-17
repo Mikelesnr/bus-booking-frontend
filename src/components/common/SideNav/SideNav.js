@@ -51,23 +51,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-// const AppBar = styled(MuiAppBar, {
-//   shouldForwardProp: (prop) => prop !== "open",
-// })(({ theme, open }) => ({
-//   zIndex: theme.zIndex.drawer + 1,
-//   transition: theme.transitions.create(["width", "margin"], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
-//   ...(open && {
-//     marginLeft: drawerWidth,
-//     width: `calc(100% - ${drawerWidth}px)`,
-//     transition: theme.transitions.create(["width", "margin"], {
-//       easing: theme.transitions.easing.sharp,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//   }),
-// }));
+
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -225,36 +209,6 @@ export default function SideNav() {
           </ListItemButton>
 
           {/* ---------------------------------------------------------------- */}
-          {/* <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
-              }}
-            >
-              <AddCircleIcon
-                onClick={() => {
-                  navigate("/add-trip");
-                }}
-              />
-            </ListItemIcon>
-            <ListItemText
-              primary="Register Trip"
-              sx={{ opacity: open ? 1 : 0 }}
-              onClick={() => {
-                navigate("/add-trip");
-              }}
-            />
-          </ListItemButton> */}
-
-          {/* ---------------------------------------------------------------- */}
           <ListItemButton
             sx={{
               minHeight: 48,
@@ -303,7 +257,8 @@ export default function SideNav() {
             >
               <LogoutIcon
                 onClick={() => {
-                  navigate("/logout");
+                  localStorage.clear()
+                  navigate("/");
                 }}
               />
             </ListItemIcon>
@@ -311,7 +266,8 @@ export default function SideNav() {
               primary="Logout"
               sx={{ opacity: open ? 1 : 0 }}
               onClick={() => {
-                navigate("/logout");
+                localStorage.clear()
+                navigate("/");
               }}
             />
           </ListItemButton>
