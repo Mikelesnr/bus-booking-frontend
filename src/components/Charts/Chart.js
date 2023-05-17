@@ -41,7 +41,6 @@ function DataChart() {
                 },
                 title: {
                     text: "No of trips Vs No of bookings",
-                    align: "center",
                 },
                 xaxis: {
                     categories: data2.map((item)=> item.bus_reg)

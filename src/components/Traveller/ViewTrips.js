@@ -60,7 +60,7 @@ function ViewTrips() {
 
     return (
         <>
-            <section style={{ backgroundColor: "#edeefa", height:"100vh" }}>
+            <section style={{ backgroundColor: "#edeefa", height:"100vh" ,paddingTop: "40px"}}>
                 <div style={{ backgroundColor: "#edeefa" }}>
                     <div className='text-center pt-5'>
                         <h2 style={{ fontWeight: 600 }}>BOOK YOUR TRIP</h2>
