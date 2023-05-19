@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const baseURL = "http://127.0.0.1:8000"
 
 const Bookingform = () => {
+  let user = JSON.parse(localStorage.getItem('user-info'));
   const paperstyle = {
     margin: "30px auto",
+    marginTop:"40px",
     width: 500,
     padding: 20,
     maxWidth: "100%",
   };
 
-  const [name, setFirstname] = useState("");
+  const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [busreg, setBusreg] = useState("");
   const [departure, setDeparture] = useState("");
@@ -21,6 +24,23 @@ const Bookingform = () => {
   const [time, setTime] = useState("");
 
   const { id } = useParams();
+
+  useEffect(() =>{
+    axios.get(`${baseURL}/api/profile/`,{
+        headers: { Authorization: `Token ${user.token}`}
+    })
+    .then(res =>{
+        if (res) {
+            // console.log(res.data.user)
+            setFirstname(res.data.user.first_name)
+            setLastname(res.data.user.last_name)
+        }
+        else {
+            console.log("Failed")
+        }
+    })
+    .catch(err => console.log(err))
+}, [])
 
   const getTrip = async () => {
     const response = await fetch(`${baseURL}/booking/trips/${id}`);
@@ -46,7 +66,7 @@ const Bookingform = () => {
 
   async function Booktrip() {
     let booking = {
-      client_name: name,
+      client_name: firstname,
       client_surname: lastname,
       bus_reg: busreg,
       trip_depature: departure,
@@ -74,6 +94,7 @@ const Bookingform = () => {
   }
 
   return (
+    <section style={{ backgroundColor: "#edeefa", height:"100vh" ,paddingTop: "40px"}}>
     <Grid>
       <Paper elevation={5} style={paperstyle}>
         <Grid align="center">
@@ -87,8 +108,8 @@ const Bookingform = () => {
           size="small"
           fullWidth
           required
-          value={name}
-          onChange={(e) => setFirstname(e.target.value)}
+          value={firstname}
+          // onChange={(e) => setFirstname(e.target.value)}
         />
 
         <TextField
@@ -99,7 +120,7 @@ const Bookingform = () => {
           fullWidth
           required
           value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
+          // onChange={(e) => setLastname(e.target.value)}
         />
 
         <TextField
@@ -110,7 +131,7 @@ const Bookingform = () => {
           fullWidth
           required
           value={busreg}
-          onChange={(e) => setBusreg(e.target.value)}
+          // onChange={(e) => setBusreg(e.target.value)}
         />
 
         <TextField
@@ -121,7 +142,7 @@ const Bookingform = () => {
           fullWidth
           required
           value={departure}
-          onChange={(e) => setDeparture(e.target.value)}
+          // onChange={(e) => setDeparture(e.target.value)}
         />
 
         <TextField
@@ -132,7 +153,7 @@ const Bookingform = () => {
           fullWidth
           required
           value={destination}
-          onChange={(e) => setDestination(e.target.value)}
+          // onChange={(e) => setDestination(e.target.value)}
         />
 
         <TextField
@@ -143,7 +164,7 @@ const Bookingform = () => {
           fullWidth
           required
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          // onChange={(e) => setDate(e.target.value)}
         />
 
         <TextField
@@ -154,13 +175,14 @@ const Bookingform = () => {
           fullWidth
           required
           value={time}
-          onChange={(e) => setTime(e.target.value)}
+          // onChange={(e) => setTime(e.target.value)}
         />
         <Button variant="contained" fullWidth onClick={Booktrip}>
           BOOK TRIP
         </Button>
       </Paper>
     </Grid>
+    </section>
   );
 };
 
