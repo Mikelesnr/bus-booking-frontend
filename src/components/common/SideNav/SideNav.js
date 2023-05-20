@@ -18,6 +18,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import CommuteIcon from "@mui/icons-material/Commute";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const drawerWidth = 200;
 
@@ -258,6 +259,9 @@ export default function SideNav() {
               <LogoutIcon
                 onClick={() => {
                   localStorage.clear()
+                  toast.success("Logged out", {
+                    position: toast.POSITION.TOP_RIGHT
+                  })
                   navigate("/");
                 }}
               />
@@ -267,6 +271,9 @@ export default function SideNav() {
               sx={{ opacity: open ? 1 : 0 }}
               onClick={() => {
                 localStorage.clear()
+                toast.success("Logged out", {
+                  position: toast.POSITION.TOP_RIGHT
+                })
                 navigate("/");
               }}
             />

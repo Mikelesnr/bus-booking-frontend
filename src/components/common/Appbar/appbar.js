@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { toast } from "react-toastify";
 
 function TopNav() {
   const navigate = useNavigate();
@@ -36,6 +37,9 @@ function TopNav() {
 
   function logout() {
     localStorage.clear();
+    toast.success("Logged out", {
+      position: toast.POSITION.TOP_RIGHT
+    })
     navigate("/");
   }
 

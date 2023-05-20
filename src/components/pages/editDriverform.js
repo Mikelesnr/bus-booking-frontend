@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const baseURL = "http://127.0.0.1:8000";
 
@@ -65,12 +66,18 @@ function EditDriverForm() {
       },
     });
     if (resp.ok){
+      toast.success("Driver added",{
+        position: toast.POSITION.TOP_CENTER,
+      })
         // console.log(item)
-        console.log(resp.status, "Updated Driver")
+        // console.log(resp.status, "Updated Driver")
         navigate("/drivers");
     }
     else{
-        console.log("Failed to Update driver")
+        // console.log("Failed to Update driver")
+        toast.err("Failed update driver",{
+          position: toast.POSITION.TOP_CENTER,
+        })
     }
   };
 

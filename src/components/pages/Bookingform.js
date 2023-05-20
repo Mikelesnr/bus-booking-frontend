@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const baseURL = "http://127.0.0.1:8000"
 
@@ -85,11 +86,15 @@ const Bookingform = () => {
     });
     if (result.ok) {
       // console.log("booked trip");
-      alert("booked trip successfully");
+      toast.success("Booked Trip Successfully",{
+        position: toast.POSITION.TOP_CENTER,
+      })
       setFirstname("");setLastname("");setBusreg("");setDeparture("");setDestination("");setDate("");setTime("");
     } else {
       // console.log("Failed to book trip");
-      alert("Failed to book trip");
+      toast.error("Failed booking",{
+        position: toast.POSITION.TOP_CENTER,
+      })
     }
   }
 

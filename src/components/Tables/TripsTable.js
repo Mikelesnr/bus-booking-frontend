@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 
@@ -107,9 +106,13 @@ function TripsTable() {
     });
 
     if (resp.ok) {
-      console.log(resp.status, "Deleted");
+      toast.success("Trip deleted",{
+        position: toast.POSITION.TOP_CENTER,
+      })
     } else {
-      console.log("Failed delete driver");
+      toast.error("Delete trip failed",{
+        position: toast.POSITION.TOP_CENTER,
+      })
     }
 
     getTrips();

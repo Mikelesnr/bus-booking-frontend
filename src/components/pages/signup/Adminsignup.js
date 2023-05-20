@@ -11,14 +11,13 @@ import {
     Box,
     Typography,
 } from "@mui/material";
-import Header from "components/common/header/header";
-import Footer from "components/common/footer/footer";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const register_url = "http://127.0.0.1:8000/api";
+const baseURL = "http://127.0.0.1:8000/api";
 
 
 function AdminSignup() {
-
     const [first_name, setfirst_name] = useState("");
     const [last_name, setlast_name] = useState("");
     const [username, setUsername] = useState("");
@@ -26,7 +25,7 @@ function AdminSignup() {
     const [password2, setPassword2] = useState("");
 
     const signUp = async () => {
-      const request = new Request(`${register_url}/register/admin/`, {
+      const request = new Request(`${baseURL}/register/admin/`, {
         body: JSON.stringify({
           first_name,
           last_name,
@@ -43,20 +42,28 @@ function AdminSignup() {
       const data = await res.json();
 
       if (res.ok) {
-        console.log(data);
-        console.log("User fetched");
-        alert("Registered successfully");
-        // navigate("/login");
+        if (password === password2) {
+          toast.success("Registered Successfully",{
+            position: toast.POSITION.TOP_CENTER,
+          })
+        }
+        else {
+          toast.error("Check password",{
+            position: toast.POSITION.TOP_CENTER,
+          })
+        }
+        // console.log(data);
+        // console.log("User fetched");
       } else {
-        console.log("Failed");
-        alert("Check creditials");
+        // console.log("Failed");
+        toast.error("USername already used",{
+          position: toast.POSITION.TOP_CENTER,
+        })
       }
     };
-
-    
+  
     return (
       <>
-        <Header/>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -148,8 +155,6 @@ function AdminSignup() {
             </Grid>
           </Box>
         </Container>
-        <br></br>
-        <Footer/>
       </>
     );
 
