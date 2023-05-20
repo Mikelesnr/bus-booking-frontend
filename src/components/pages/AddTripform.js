@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const baseURL = "http://127.0.0.1:8000";
 
@@ -57,17 +58,29 @@ export default function AddTripForm() {
       },
     });
     if (result.ok) {
-      console.log(item);
-    } else {
-      console.log("Failed to add trip");
+      if (time !== "" || date !== "" || departure !== "" || destination !== "") {
+        toast.success("Trip added", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+        setBusreg("")
+        navigate("/trips-available");
+      }
+      else {
+        toast.error("Missing fields", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      }
     }
-    setBusreg("");
+    else {
+      toast.error("Failed to add trip", {
+        position: toast.POSITION.TOP_CENTER,
+      })
+      // console.log("Failed to add driver")
+    }
     setDate("");
     setDeparture("");
     setDestination("");
     setTime("");
-    navigate("/trips-available");
-    
   }
 
   return (
@@ -83,7 +96,7 @@ export default function AddTripForm() {
           fullWidth
           required
           value={busreg}
-          onChange={(e) => setBusreg(e.target.value)}
+        // onChange={(e) => setBusreg(e.target.value)}
         />
 
         <TextField

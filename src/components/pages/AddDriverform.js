@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function AddDriverForm() {
     
@@ -39,13 +40,28 @@ export default function AddDriverForm() {
       },
     });
     if (result.ok){
-        console.log(item)
+      // console.log(item)
+      if (name !== "" || surname !== "" || busreg !== "" ||
+        bustype !== "" || seats !== "" || route !== "") {
+          toast.success("Driver added",{
+            position: toast.POSITION.TOP_CENTER,
+          })
+          navigate("/drivers");
+        }
+        else {
+          toast.error("Missing fields",{
+            position: toast.POSITION.TOP_CENTER,
+          })
+          navigate("/add-driver");
+        }
     }
     else{
-        console.log("Failed to add driver")
+      toast.error("Failed to add driver",{
+        position: toast.POSITION.TOP_CENTER,
+      })
+        // console.log("Failed to add driver")
     }
     setName('');setSurname("");setBusreg("");setSeats("");setBustype("");setRoute("");
-    navigate("/drivers");
   }
 
   return (

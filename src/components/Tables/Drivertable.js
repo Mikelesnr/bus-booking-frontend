@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const titlestyle = {
   headRow: {
@@ -117,9 +118,15 @@ function Drivertable() {
     });
 
     if (resp.ok) {
-      console.log(resp.status, "Deleted");
+      // console.log(resp.status, "Deleted");
+      toast.success("Driver deleted",{
+        position: toast.POSITION.TOP_CENTER,
+      })
     } else {
-      console.log("Failed delete driver");
+      // console.log("Failed delete driver");
+      toast.error("Delete driver failed",{
+        position: toast.POSITION.TOP_CENTER,
+      })
     }
 
     getDrivers();

@@ -84,6 +84,7 @@ import UserAuth from 'components/utilis/UserAuth';
 
 import BookTrip from 'components/pages/BookTrip';
 import ProtectedRoutes from 'components/utilis/ProtectedRoutes';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -113,6 +114,7 @@ const App = () => {
           <Route path="/book-trip/:id" element={<ProtectedRoutes><BookTrip /></ProtectedRoutes>} /> 
         </Routes>
       </BrowserRouter>
+      <ToastContainer/>
     </>
   );
 }

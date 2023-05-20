@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const baseURL = "http://127.0.0.1:8000";
 
@@ -61,11 +62,15 @@ export default function EditTripForm() {
         Accept: "application/json",
       },
     });
-    if (result.ok) {
-      console.log(item);
-      console.log("Updated")
-    } else {
-      console.log("Failed to update trip");
+    if (result.ok){
+      toast.success("Trip updated",{
+        position: toast.POSITION.TOP_CENTER,
+      })
+    }
+    else{
+        toast.err("Failed update trip",{
+          position: toast.POSITION.TOP_CENTER,
+        })
     }
     setBusreg("");
     setDate("");

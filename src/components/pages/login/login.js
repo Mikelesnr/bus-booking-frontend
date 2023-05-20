@@ -12,6 +12,8 @@ import {
   Box,
   Typography,
 } from "@mui/material";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const login_url = "http://127.0.0.1:8000";
 
@@ -34,20 +36,20 @@ function Login() {
 
     if (res.ok) {
       // console.log(data);
+      toast.success("Logged in successfully",{
+        position: toast.POSITION.TOP_CENTER,
+      })
       localStorage.setItem("user-info", JSON.stringify(data));
-      // console.log("User fetched")
       navigate("/dashboard");
     } else {
-      // console.log("Failed");
-      alert("Invalid creditials");
+      toast.error("Invalid Credentials",{
+        position: toast.POSITION.TOP_CENTER,
+      })
     }
   };
 
-
-
   return (
     <>
-      {/* <Header /> */}
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -105,7 +107,6 @@ function Login() {
           </Grid>
         </Box>
       </Container>
-      {/* <Footer /> */}
     </>
   );
 }
