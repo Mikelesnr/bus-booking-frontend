@@ -104,7 +104,12 @@ function TopNav() {
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">View Bookings</Typography>
+                <Typography textAlign="center"
+                onClick={() => {
+                  navigate("/my_bookings");
+                }}
+                >View Bookings
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -139,7 +144,12 @@ function TopNav() {
               Trips
             </Button>
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={
+                (handleCloseNavMenu,
+                () => {
+                  navigate("/my_bookings");
+                })
+              }
               sx={{ my: 2, color: "white", display: "block" }}
             >
               View Bookings
